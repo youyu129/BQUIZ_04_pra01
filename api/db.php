@@ -122,3 +122,5 @@ function dd($array)
     print_r($array);
     echo "</pre>";
 }
+
+$Mem=new DB('mems');
