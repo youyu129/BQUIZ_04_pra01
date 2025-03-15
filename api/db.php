@@ -4,7 +4,7 @@ session_start();
 
 class DB
 {
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=0401";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db0401";
     protected $pdo;
     protected $table;
 
@@ -19,7 +19,7 @@ class DB
         $sql = "SELECT * FROM $this->table ";
         if (! empty($arg[0])) {
             if (is_array($arg[0])) {
-                $tmp = $this->a2s($array);
+                $tmp = $this->a2s($arg[0]);
                 $sql .= " WHERE " . join(" && ", $tmp);
             } else {
                 $sql .= $arg[0];
@@ -40,7 +40,7 @@ class DB
         } else {
             $sql .= " WHERE `id`='$array'";
         }
-        return $this->pdo->query($sql) > fetch(PDO::FETCH_ASSOC);
+        return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
     public function save($array)
@@ -49,11 +49,11 @@ class DB
             $id = $array['id'];
             unset($array['id']);
             $tmp = $this->a2s($array);
-            $sql = "UPDATE $this->table SET " . join(",", $tmp) . " WHERE `id`=$id";
+            $sql = "UPDATE $this->table SET " . join(",", $tmp) . " WHERE `id`='$id'";
         } else {
-            $keys  = join("`,`", array_keys($array));
-            $value = join("','", $array);
-            $sql   = "INSERT INTO $this->table (`{$keys}`) VALUES('{$values}')";
+            $keys   = join("`,`", array_keys($array));
+            $values = join("','", $array);
+            $sql    = "INSERT INTO $this->table (`{$keys}`) VALUES('{$values}')";
         }
         return $this->pdo->exec($sql);
     }
@@ -75,7 +75,7 @@ class DB
         $sql = "SELECT count(*) FROM $this->table ";
         if (! empty($arg[0])) {
             if (is_array($arg[0])) {
-                $tmp = $this->a2s($array);
+                $tmp = $this->a2s($arg[0]);
                 $sql .= " WHERE " . join(" && ", $tmp);
             } else {
                 $sql .= $arg[0];
@@ -99,14 +99,14 @@ class DB
 
 function q($sql)
 {
-    $dsn = "mysql:host=localhost;charset=utf8;dbname=0401";
+    $dsn = "mysql:host=localhost;charset=utf8;dbname=db0401";
     $pdo = new PDO($dsn, 'root', '');
     return $pdo->query($sql)->fetchAll();
 }
 
 function sum($sql)
 {
-    $dsn = "mysql:host=localhost;charset=utf8;dbname=0401";
+    $dsn = "mysql:host=localhost;charset=utf8;dbname=db0401";
     $pdo = new PDO($dsn, 'root', '');
     return $pdo->query($sql)->fetchColumn();
 }
