@@ -20,8 +20,8 @@
     <tr class="tt">
         <td><?=$big['name'];?></td>
         <td class="ct">
-            <button>修改</button>
-            <button>刪除</button>
+            <button onclick="editType(<?=$big['id'];?>,this)">修改</button>
+            <button onclick="del('Type',<?=$big['id'];?>)">刪除</button>
         </td>
     </tr>
     <?php
@@ -32,8 +32,8 @@
     <tr class="ct pp">
         <td><?=$mid['name'];?></td>
         <td>
-            <button>修改</button>
-            <button>刪除</button>
+            <button onclick="editType(<?=$mid['id'];?>,this)">修改</button>
+            <button onclick="del('Type',<?=$mid['id'];?>)">刪除</button>
         </td>
     </tr>
     <?php
@@ -44,7 +44,7 @@
 
 <h2 class="ct">商品管理</h2>
 <div class="ct">
-    <button>新增商品</button>
+    <button onclick="location.href='?do=add_item'">新增商品</button>
 </div>
 <div class="ct">
     <select name="" id="">
@@ -92,12 +92,7 @@ function addType(type) {
         name,
         big_id
     }, () => {
-        if (type == 'big') {
-            getBig();
-            $("#big").val("")
-        } else {
-            $("#mid").val("")
-        }
+        location.reload()
     })
 }
 
@@ -105,6 +100,17 @@ function addType(type) {
 function getBig() {
     $.get("./api/get_big.php", (big) => {
         $("#selectBig").html(big)
+    })
+}
+
+function editType(id, dom) {
+    let type = $(dom).parent().prev().text()
+    let name = prompt("請輸入你要修改的分類名稱", type)
+    $.post("./api/save_type.php", {
+        id,
+        name
+    }, () => {
+        location.reload()
     })
 }
 </script>
