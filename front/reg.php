@@ -80,15 +80,16 @@ function reg() {
     if (user.acc == 'admin') {
         alert("不可使用admin")
     } else {
-        $.post("./api/chk_acc.php", {
+        $.get("./api/chk_acc.php", {
             acc: user.acc
         }, (res) => {
             if (parseInt(res) >= 1) {
                 alert("帳號重複")
             } else {
                 $.post("./api/reg.php", user, (res) => {
-                    console.log('res', res)
-                    // alert("註冊成功，歡迎加入")
+                    // console.log('res', res)
+                    alert("註冊成功，歡迎加入")
+                    location.reload()
                 })
             }
         })
