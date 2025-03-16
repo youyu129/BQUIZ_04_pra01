@@ -19,9 +19,11 @@
         if($row['acc']=='admin'){
             echo "此帳號為最高權限";
         }else{
-            echo "<button style='margin:auto' onclick='edit()'>修改</button>";
-            echo "<button style='margin:auto' onclick='del()'>刪除</button>";
-        }    
+            ?>
+            <button style='margin:auto' onclick="location.href='?do=edit_admin&id=<?=$row['id'];?>'">修改</button>
+            <button style='margin:auto' onclick="del('Admin',<?=$row['id'];?>)">刪除</button>
+            <?php
+        }
         ?>
         </td>
     </tr>
@@ -29,17 +31,3 @@
     endforeach;
     ?>
 </table>
-
-<script>
-function add() {
-
-}
-
-function del() {
-
-}
-
-function edit() {
-
-}
-</script>

@@ -17,10 +17,10 @@
             <td class="tt ct">權限</td>
             <td class="pp">
                 <input type="checkbox" name="p[]" value="1">商品分類與管理<br>
-                <input type="checkbox" name="p[]" id="2">訂單管理<br>
-                <input type="checkbox" name="p[]" id="3">會員管理<br>
-                <input type="checkbox" name="p[]" id="4">頁尾版權區管理<br>
-                <input type="checkbox" name="p[]" id="5">最新消息管理
+                <input type="checkbox" name="p[]" value="2">訂單管理<br>
+                <input type="checkbox" name="p[]" value="3">會員管理<br>
+                <input type="checkbox" name="p[]" value="4">頁尾版權區管理<br>
+                <input type="checkbox" name="p[]" value="5">最新消息管理
             </td>
         </tr>
     </table>
