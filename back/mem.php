@@ -14,7 +14,7 @@ foreach($rows as $row):
     <tr class="pp">
         <td><?=$row['name'];?></td>
         <td><?=$row['acc'];?></td>
-        <td><?=$row['regdate'];?></td>
+        <td><?=substr($row['regdate'],0,10);?></td>
         <td>
             <button onclick="location.href='?do=edit_mem&id=<?=$row['id'];?>'">修改</button>
             <button onclick="del('Mem',<?=$row['id'];?>)">刪除</button>

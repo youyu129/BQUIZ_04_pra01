@@ -1,5 +1,5 @@
 <h2 class="ct">編輯會員資料</h2>
-<form action="./api/save_mem.php" method="post">
+<form action="./api/reg.php" method="post">
     <?php
 $row=$Mem->find(['id'=>$_GET['id']]);
 ?>
@@ -42,7 +42,7 @@ $row=$Mem->find(['id'=>$_GET['id']]);
         </tr>
     </table>
     <div class="ct">
-        <input type="hidden" name="id" value="<?=$_GET['id'];?>">
+        <input type="hidden" name="id" value="<?=$row['id'];?>">
         <input type="submit" value="編輯">
         <input type="reset" value="重置">
         <input type="button" value="取消" onclick="location.href='?do=mem'">
