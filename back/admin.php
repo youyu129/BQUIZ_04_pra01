@@ -1,5 +1,5 @@
 <div class="ct">
-    <button style="margin:auto" onclick="add()">新增管理員</button>
+    <button style="margin:auto" onclick="location.href='?do=add_admin'">新增管理員</button>
 </div>
 <table class="all">
     <tr class="tt ct">
@@ -13,7 +13,7 @@
     ?>
     <tr class="pp ct">
         <td class="pp ct"><?=$row['acc'];?></td>
-        <td class="pp ct"><?=$row['pw'];?></td>
+        <td class="pp ct"><?=str_repeat("*",strlen($row['pw']));?></td>
         <td class="pp ct">
             <?php
         if($row['acc']=='admin'){
@@ -29,3 +29,17 @@
     endforeach;
     ?>
 </table>
+
+<script>
+function add() {
+
+}
+
+function del() {
+
+}
+
+function edit() {
+
+}
+</script>

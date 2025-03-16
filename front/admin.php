@@ -35,6 +35,7 @@
 <!-- </form> -->
 <?php
 // echo serialize([1,2,3,4,5]);
+// a:5:{i:0;i:1;i:1;i:2;i:2;i:3;i:3;i:4;i:4;i:5;}
 ?>
 <script>
 function login() {
@@ -46,6 +47,7 @@ function login() {
     let ans = $("#ans").val()
     if (chk != ans) {
         alert("對不起，您輸入的驗證碼有誤請您重新輸入")
+        $("#chk").val("")
     } else {
         $.get("./api/chk_pw_admin.php", user, (res) => {
             if (parseInt(res) == 1) {
