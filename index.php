@@ -36,7 +36,7 @@ include_once "./api/db.php";
                 ?>
                 <?php
                 if(isset($_SESSION['admin'])){
-                    echo "<a href='./api/logout.php'>管理登出</a>";
+                    echo "<a href='admin.php'>返回管理</a>";
                 }else{
                     echo "<a href='?do=admin'>管理登入</a>";
                 }
