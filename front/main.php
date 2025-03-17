@@ -9,20 +9,31 @@
             $nav=$type['name'];
         }else{
             $big=$Type->find($type['big_id']);
-            $nav=$big['name'].">".$type['name'];
+            $nav=$big['name'] ." > ". $type['name'];
         }
     }
 ?>
-<h2><span id="nav"><?=$nav;?></span></h2>
+
+<h2><?=$nav;?></h2>
 
 <table class="all">
     <?php
-    $rows=$Item->all(['sh'=>1,'big_id'=>$typeId]);
+    if($typeId==0){
+        $rows=$Item->all(['sh'=>1]);
+    }else if($type['big_id']==0){
+        $rows=$Item->all(['big'=>$typeId,'sh'=>1]);
+    }else{
+        $rows=$Item->all(['mid'=>$typeId,'sh'=>1]);
+    }
     foreach($rows as $row):
     ?>
     <tr class="pp">
-        <td rowspan="4"><img src="../upload/<?=$row['img'];?>" style="width:200px"></td>
-        <td class="tt"><?=$row['name'];?></td>
+        <td rowspan="4">
+            <img src="../upload/<?=$row['img'];?>" style="width:200px">
+        </td>
+        <td class="tt">
+            <?=$row['name'];?>
+        </td>
     </tr>
 
     <tr class="pp">
