@@ -46,7 +46,27 @@ include_once "./api/db.php";
 
         </div>
         <div id="left" class="ct">
-            <div style="min-height:400px;">
+            <div style="min-height:400px;" class="ww">
+                <?php
+                $bigs=$Type->all(['big_id'=>0]);
+                foreach($bigs as $big){
+                    echo "<div class='ww'>";
+                    echo "<a href='?type=".$big['id']."'>";
+                    echo $big['name'];
+                    echo "(".$Item->count(['big'=>$big['id'],'sh'=>1]).")";
+                    echo "</a>";
+                    $mids=$Type->all(['big_id'=>$big['id']]);
+                    echo "<div class='s'>";
+                        foreach($mids as $mid){
+                            echo "<a href='?type=".$mid['id']."' style='background:lightblue;'>";
+                            echo $mid['name'];
+                            echo "(".$Item->count(['mid'=>$mid['id'],'sh'=>1]).")";
+                            echo "</a>";
+                        }  
+                    echo "</div>";
+                    echo "</div>";
+                }
+                ?>
             </div>
             <span>
                 <div>進站總人數</div>
