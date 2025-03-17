@@ -39,7 +39,7 @@
     <tr class="pp">
         <td>
             <?=$row['price'];?>
-            <a href="?do=buycart&id=<?=$row['id'];?>"><img src="../icon/0402.jpg" alt="" style="float:right"></a>
+            <a href="?do=buycart&qt=1&id=<?=$row['id'];?>"><img src="../icon/0402.jpg" alt="" style="float:right"></a>
         </td>
 
     </tr>

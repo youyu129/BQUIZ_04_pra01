@@ -32,7 +32,16 @@ $row=$Item->find($_GET['id']);
 </table>
 
 <div class="ct">
+    <input type="hidden" name="id" id="id" value="<?=$row['id'];?>">
     購買數量:<input type="number" name="buy" id="buy" value="1">
-    <a href="?do=buycart&id=<?=$row['id'];?>"><img src="../icon/0402.jpg"></a>
+    <img src="../icon/0402.jpg" onclick="buy()">
 </div>
 <div class="ct"><button><a href="?do=main">返回</a></button></div>
+
+<script>
+function buy() {
+    console.log('buy ok');
+    let qt = $("#buy").val()
+    location.href = `?do=buycart&id=<?=$row['id'];?>&qt=${qt}`
+}
+</script>
