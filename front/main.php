@@ -39,7 +39,7 @@
     <tr class="pp">
         <td>
             <?=$row['price'];?>
-            <img src="../icon/0402.jpg" alt="" style="float:right">
+            <a href="?do=detail&id=<?=$row['id'];?>"><img src="../icon/0402.jpg" alt="" style="float:right"></a>
         </td>
 
     </tr>
