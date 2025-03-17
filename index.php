@@ -47,6 +47,7 @@ include_once "./api/db.php";
         </div>
         <div id="left" class="ct">
             <div style="min-height:400px;" class="ww">
+                <a href="?type=0">全部商品(<?=$Item->count();?>)</a>
                 <?php
                 $bigs=$Type->all(['big_id'=>0]);
                 foreach($bigs as $big){

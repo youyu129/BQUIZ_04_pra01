@@ -1,8 +1,23 @@
-<h2><span class="nav_big">流行皮件</span>><span class="nav_mid">男用皮件</span></h2>
+<?php
+    $nav='';
+    $typeId=$_GET['type']??0;
+    if($typeId==0){
+        $nav="全部商品";
+    }else{
+        $type=$Type->find($typeId);
+        if($type['big_id']==0){
+            $nav=$type['name'];
+        }else{
+            $big=$Type->find($type['big_id']);
+            $nav=$big['name'].">".$type['name'];
+        }
+    }
+?>
+<h2><span id="nav"><?=$nav;?></span></h2>
 
 <table class="all">
     <?php
-    $rows=$Item->all(['sh'=>1]);
+    $rows=$Item->all(['sh'=>1,'big_id'=>$typeId]);
     foreach($rows as $row):
     ?>
     <tr class="pp">
