@@ -32,7 +32,7 @@ $row=$Item->find($_GET['id']);
 </table>
 
 <div class="ct">
-    購買數量<input type="number" name="buy" id="buy">
-    <a href="?do=cart&id=<?=$row['id'];?>"><img src="../icon/0402.jpg"></a>
+    購買數量:<input type="number" name="buy" id="buy" value="1">
+    <a href="?do=buycart&id=<?=$row['id'];?>"><img src="../icon/0402.jpg"></a>
 </div>
 <div class="ct"><button><a href="?do=main">返回</a></button></div>

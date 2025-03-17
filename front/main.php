@@ -29,7 +29,7 @@
     ?>
     <tr class="pp">
         <td rowspan="4">
-            <img src="../upload/<?=$row['img'];?>" style="width:200px">
+            <a href="?do=detail&id=<?=$row['id'];?>"><img src="../upload/<?=$row['img'];?>" style="width:200px"></a>
         </td>
         <td class="tt">
             <?=$row['name'];?>
@@ -39,7 +39,7 @@
     <tr class="pp">
         <td>
             <?=$row['price'];?>
-            <a href="?do=detail&id=<?=$row['id'];?>"><img src="../icon/0402.jpg" alt="" style="float:right"></a>
+            <a href="?do=buycart&id=<?=$row['id'];?>"><img src="../icon/0402.jpg" alt="" style="float:right"></a>
         </td>
 
     </tr>
