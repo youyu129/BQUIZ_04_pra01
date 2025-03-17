@@ -25,7 +25,6 @@ if(!isset($_SESSION['login'])){
     </tr>
     <?php
     foreach($_SESSION['cart'] as $id =>$qt){
-        if($qt != 0){
         $row=$Item->find($id);
     ?>
     <tr class="pp ct">
@@ -41,7 +40,6 @@ if(!isset($_SESSION['login'])){
     </tr>
     <?php
         }
-    }
     ?>
 </table>
 <div class="ct">
