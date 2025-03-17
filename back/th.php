@@ -59,11 +59,23 @@
         <td class="tt">狀態</td>
         <td class="tt">操作</td>
     </tr>
+    <?php
+    $rows=$Item->all();
+    foreach($rows as $row):
+    ?>
     <tr class="ct">
-        <td class="pp"></td>
-        <td class="pp"></td>
-        <td class="pp"></td>
-        <td class="pp"></td>
+        <td class="pp"><?=$row['no'];?></td>
+        <td class="pp"><?=$row['name'];?></td>
+        <td class="pp"><?=$row['q'];?></td>
+        <td class="pp">
+            <?php
+        if($row['sh']==1){
+            echo "販售中";
+        }else{
+            echo "已下架";
+        }
+        ?>
+        </td>
         <td class="pp">
             <button>修改</button>
             <button>刪除</button>
@@ -71,6 +83,9 @@
             <button>下架</button>
         </td>
     </tr>
+    <?php
+endforeach;
+?>
 </table>
 
 <script>

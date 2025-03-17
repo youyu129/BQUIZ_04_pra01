@@ -127,3 +127,4 @@ $Mem=new DB('mems');
 $Admin=new DB('admins');
 $Bottom=new DB('bottoms');
 $Type=new DB('types');
+$Item=new DB('items');
