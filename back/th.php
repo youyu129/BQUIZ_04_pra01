@@ -67,18 +67,11 @@
         <td class="pp"><?=$row['no'];?></td>
         <td class="pp"><?=$row['name'];?></td>
         <td class="pp"><?=$row['q'];?></td>
-        <td class="pp">
-            <?php
-        if($row['sh']==1){
-            echo "販售中";
-        }else{
-            echo "已下架";
-        }
-        ?>
+        <td class="pp"><?=($row['sh']=1)?"販售中":"已下架";?>
         </td>
         <td class="pp">
-            <button>修改</button>
-            <button>刪除</button>
+            <button onclick="location.href='?do=edit_item&id=<?=$row['id'];?>'">修改</button>
+            <button onclick="del('Item',<?=$row['id'];?>)">刪除</button><br>
             <button>上架</button>
             <button>下架</button>
         </td>
