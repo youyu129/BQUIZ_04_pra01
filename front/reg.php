@@ -89,7 +89,7 @@ function reg() {
                 $.post("./api/reg.php", user, (res) => {
                     // console.log('res', res)
                     alert("註冊成功，歡迎加入")
-                    location.reload()
+                    location.href = 'index.php'
                 })
             }
         })
