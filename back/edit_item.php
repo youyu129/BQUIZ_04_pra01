@@ -88,10 +88,12 @@ function getTypes(type) {
         switch (type) {
             case 'big':
                 $("#big").html(types)
+                $("#big option[value='<?=$row['big'];?>']").prop('selected', true)
                 getTypes('mid')
                 break;
             case 'mid':
                 $("#mid").html(types)
+                $("#mid option[value='<?=$row['mid'];?>']").prop('selected', true)
                 break;
         }
         // $("#selectBig").html(big)

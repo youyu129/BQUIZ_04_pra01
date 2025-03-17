@@ -67,13 +67,13 @@
         <td class="pp"><?=$row['no'];?></td>
         <td class="pp"><?=$row['name'];?></td>
         <td class="pp"><?=$row['q'];?></td>
-        <td class="pp"><?=($row['sh']=1)?"販售中":"已下架";?>
+        <td class="pp"><?=($row['sh']==1)?"販售中":"已下架";?>
         </td>
         <td class="pp">
             <button onclick="location.href='?do=edit_item&id=<?=$row['id'];?>'">修改</button>
             <button onclick="del('Item',<?=$row['id'];?>)">刪除</button><br>
-            <button>上架</button>
-            <button>下架</button>
+            <button onclick="sh(1,<?=$row['id'];?>)">上架</button>
+            <button onclick="sh(0,<?=$row['id'];?>)">下架</button>
         </td>
     </tr>
     <?php
@@ -118,6 +118,15 @@ function editType(id, dom) {
         id,
         name
     }, () => {
+        location.reload()
+    })
+}
+
+function sh(sh, id) {
+    $.post("./api/sh.php", {
+        sh,
+        id
+    }, function() {
         location.reload()
     })
 }
